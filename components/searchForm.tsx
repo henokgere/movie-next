@@ -3,12 +3,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const SearchForm = () => {
-  const router = useRouter();
+  const routerC = useRouter();
   const [query, setQuery] = useState("");
 
   // Redirect to the search result page when the query changes
   useEffect(() => {
-    if (query) router.push(`/movie/${query}`);
+    if (query) routerC.push(`/movie/${query}`);
   }, [query]);
 
   const searchMovie = (formdata: FormData) => {

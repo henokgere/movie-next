@@ -79,7 +79,7 @@ export default function Searched({ params }: { params: { search: string } }) {
 
       {/* No Results Message */}
       {movies.length === 0 && query && (
-        <p className="mt-12 text-gray-500 text-lg">No movies found for "{query}".</p>
+        <p className="mt-12 text-gray-500 text-lg">No movies found for {query}.</p>
       )}
     </div>
   );
