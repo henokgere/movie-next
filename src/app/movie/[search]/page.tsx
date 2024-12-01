@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { PageProps } from "../../../../.next/types/app/movie/[search]/page";
 
 type Movie = {
   Title: string;
@@ -11,9 +12,10 @@ type Movie = {
   Poster: string;
 };
 
-export default function Searched({ params }: { params: { search: string } }) {
+
+export default function Searched(props: { params?: { search?: string } } & PageProps) {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [query, setQuery] = useState(params.search || "");
+  const [query, setQuery] = useState(props.params?.search || "");
 
   useEffect(() => {
     const fetchMovies = async () => {
