@@ -1,10 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 
 const SearchForm = () => {
   const routerC = useRouter();
   const [query, setQuery] = useState("");
+  const { pending } = useFormStatus();
 
   // Redirect to the search result page when the query changes
   useEffect(() => {
@@ -32,7 +34,8 @@ const SearchForm = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          disabled={pending}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 disabled:bg-blue-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
         >
           Search
         </button>
